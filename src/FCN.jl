@@ -4,11 +4,9 @@ module FCN
 using Knet: Data    
 using Knet 
 using Statistics
-using JLD2
 using IterTools: ncycle, takenth
 using Base.Iterators: flatten
 using Plots
-using MAT
 
 
 include("./conv.jl"); #export Conv
