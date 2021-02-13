@@ -1,4 +1,4 @@
-export LR_norm, nll4, accuracy4, _accuracy4, train_epoch!, train_generic!, max_vote
+export LR_norm, nll4, accuracy4, _accuracy4, train_epoch!, max_vote
 
 
 
