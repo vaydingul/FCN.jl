@@ -71,14 +71,7 @@ function (gmlp::GenericMLP)(x, y)
     
 end
 
-function (gmlp::GenericMLP)(data::Data) 
+function (gmlp::GenericMLP)(data::AbstractNetworkData) 
     # Loss calculation for whole epoch/dataset
 return mean(gcn(x, y) for (x, y) in data)
 end
-
-#=
-function (gmlp::GenericMLP)(data::NetworkData) 
-    # Loss calculation for whole epoch/dataset
-return mean(gcn(x, y) for (x, y) in data)
-end
-=#
