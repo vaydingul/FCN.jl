@@ -1,8 +1,7 @@
 module FCN
 
-
-using Knet: Data    
 using Knet 
+using GDH
 using Statistics
 using IterTools: ncycle, takenth
 using Base.Iterators: flatten

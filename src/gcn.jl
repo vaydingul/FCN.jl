@@ -123,7 +123,7 @@ function GCN(i_dim, o_dim, kernels; hidden=[], optimizer_type=adam, lr=1e-4, los
     
 end
 
-function (gcn::GCN)(x::Union{AbstractArray, KnetArray})
+function (gcn::GCN)(x)
         # Feed-forward through MLP model (whole architecture)
     for l in gcn.layers
         
@@ -146,14 +146,8 @@ function (gcn::GCN)(x, y)
     return loss 
 end
     
-function (gcn::GCN)(data::Data) 
+function (gcn::GCN)(data::AbstractNetworkData) 
         # Loss calculation for whole epoch/dataset
     return mean(gcn(x, y) for (x, y) in data)
         
-end
-
-
-function (gcn::GCN)(data::T) where T 
-    # Loss calculation for whole epoch/dataset
-return mean(gcn(x, y) for (x, y) in data)
 end
