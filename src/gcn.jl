@@ -146,7 +146,7 @@ function (gcn::GCN)(x, y)
     return loss 
 end
     
-function (gcn::GCN)(data::AbstractNetworkData) 
+function (gcn::GCN)(data::NetworkData) 
         # Loss calculation for whole epoch/dataset
     return mean(gcn(x, y) for (x, y) in data)
         
