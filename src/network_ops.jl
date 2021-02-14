@@ -75,7 +75,7 @@ function nll4(x, y)
     x = permutedims(x, (3, 1, 2, 4))
     sc, sx, sy, sn = size(x)
     y_ = vcat(collect(fill(y[k], sx * sy) for k in 1:sn)...)
-    loss = nll(mat(x, dims=1), y_)
+    loss = nll(mat(x; dims=1), y_)
     return loss
 
 end
@@ -116,7 +116,7 @@ function _accuracy4(x, y; average=true)
 
     x = permutedims(x, (3, 1, 2, 4))
     sc, sx, sy, sn = size(x)
-    correct = [max_vote(mat(x[:,:,:,k], dims=1)) .== y[k] for k in 1:sn]
+    correct = [max_vote(mat(x[:,:,:,k]; dims=1)) .== y[k] for k in 1:sn]
     average ? (sum(correct) / length(correct)) : (sum(correct), length(correct))
 
 end
